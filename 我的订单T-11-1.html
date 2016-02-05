@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TCL官方网站</title>
+
+<!-- <link rel="stylesheet/less" type="text/css" href="less/header.less" />
+<link rel="stylesheet/less" type="text/css" href="less/main.less" /> 
+<script src="js/less.min.js" type="text/javascript"></script> -->
+
+ <link rel="stylesheet" href="less/header.css" />
+<link rel="stylesheet" href="less/main.css" />
+<link rel="stylesheet" href="less/common.css" /> 
+<link rel="stylesheet" rel="stylesheet/css" type="text/css" href="less/widget/idangerous.swiper.css" />	
+<script src="js/init.js"></script>
+<style>
+
+
+</style>
+</head>
+<body>
+	<!-- Top html start -->
+	<header class="header bor-bott">
+		<img class="fl logo" src="img/logo.png" />
+		<div class="fr w80">
+			<div class="search">&#xe603</div>
+			<div class="cart">&#xe61f</div>
+			<div class="nav">&#xe608</div>		
+		</div>
+	</header>
+	<!-- Top html end -->
+	
+	<!--My order html--->
+	<div class="reset-password m-order">
+		<h3>我的订单</h3>
+		
+		<div class="m-order_list">
+			<div class="m-itme" value="0"><!--待付款订单-->
+				<div class="order-state">
+					<div class="m-left">状态：等待付款</div>
+					<div class="m-right">2015/11/25  16:18</div>
+				</div>
+				<ul class="order_commodity">
+					<li>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+					  <div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+				  </li>
+				</ul>
+				<div class="payment">
+					<div class="payment_commodity">共 7 件商品</div>
+					<div class="payment_price">合 计：<span>8888元</span></div>
+					<div class="payment_btn"><a href="##" class="btn btn_color">立即支付</a></div>
+				</div>
+			</div><!--待付款订单 end-->
+			
+			<div class="m-itme" value="1"><!--已发货订单-->
+				<div class="order-state">
+					<div class="m-left">状态：已发货</div>
+					<div class="m-right">2015/11/25  16:18</div>
+				</div>
+				<ul class="order_commodity">
+					<li>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+				  </li>
+				</ul>
+				<div class="payment">
+					<div class="payment_commodity">共 2 件商品</div>
+					<div class="payment_price">合 计：<span>8888元</span></div>
+					<div class="payment_btn"><a href="##" class="btn">查看物流</a></div>
+				</div>
+			</div><!--已发货订单 end-->
+			
+			<div class="m-itme" value="2"><!--已发货订单-->
+				<div class="order-state">
+					<div class="m-left">状态：已发货</div>
+					<div class="m-right">2015/11/25  16:18</div>
+				</div>
+				<ul class="order_commodity">
+					<li>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+						<div class="order-itme"><div class="img"><img src="img/order_commodity.jpg"></div></div>
+				  </li>
+				</ul>
+				<div class="payment">
+					<div class="payment_commodity">共 2 件商品</div>
+					<div class="payment_price">合 计：<span>8888元</span></div>
+					<div class="payment_btn"><a href="##" class="btn">查看物流</a></div>
+				</div>
+			</div><!--已发货订单 end-->
+		</div>
+		
+	</div><!--My order html end--->
+	
+  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script> 
+  <script>
+  	
+		    function move(){
+		    	$y = $(".order_commodity li");
+		    	 toatlLength = $(".m-order_list").find(".m-itme").length;
+		    	 arr = new Array();
+		    	for(var a=0;a<toatlLength;a++){
+		    		   arr[a] = 1;
+		    		}
+    		  pic_width = $(".order_commodity").width()/'4.5';
+			    $(".order_commodity li .order-itme").width(pic_width);
+			    $y.height($(".order_commodity li .order-itme").height());
+		    	  $(".order_commodity").each(function(){
+		    		  $(this).find("li").width($(this).find(".order-itme").size()*pic_width+1);
+		    	  });
+		    }   
+			    move();
+					$($y).on("touchstart", function(e) {
+				      startX = e.originalEvent.changedTouches[0].pageX;
+				      startY = e.originalEvent.changedTouches[0].pageY;
+				  });
+					$($y).on("touchmove", function(e) {
+						 $size = $(this).find(".order-itme").length();
+					    moveEndX = e.originalEvent.changedTouches[0].pageX;
+					    moveEndY = e.originalEvent.changedTouches[0].pageY;
+					    X = moveEndX - startX;
+					    Y = moveEndY - startY;
+					    if ( X > 0 ) {
+					        if( !$(this).is(":animated") ){    //判断“视频内容展示区域”是否正在处于动画
+			              var page_str = $(this).parents(".m-itme").attr("value");
+			              page = arr[page_str];
+			              
+			              if( arr[page_str] == 1 ){  //已经到最后一个版面了,如果再向前，就没有了，停止。
+			              	 return false;
+			                page = page_count;
+			                }else{
+			                $(this).animate({right : '-='+pic_width}, "slow"); //通过改变right值，达到每次换一个版面
+			                page--;
+			             }
+			             arr[page_str] = page;
+			         }
+			         return false;
+					    }
+					    else if ( X < 0 ) {
+					    	 if( !$(this).is(":animated")){    //判断“视频内容展示区域”是否正在处于动画
+					    	 	  var page_str = $(this).parents(".m-itme").attr("value");
+			              page = arr[page_str];
+			              
+			              if($size <= 4){
+			              	return false;
+			              	}
+			              	
+			              if( page == $size - 3){  //已经到最后一个版面了,如果再向后，就没有了，停止。
+			                return false;
+			                page = 1;
+			                }else{
+	                		 $(this).animate({ right : '+='+ pic_width}, "slow");  //通过改变right值，达到每次换一个版面
+	                     page++; 
+			             }
+			             arr[page_str] = page;
+			           }
+			         return false;
+					    } 
+					    e.preventDefault();
+					});
+		    
+		     $(window).resize(function(){	
+      	   move();
+         });
+		    
+  </script>
+</body>
+</html>

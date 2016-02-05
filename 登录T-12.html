@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TCL官方网站</title>
+
+<!-- <link rel="stylesheet/less" type="text/css" href="less/header.less" />
+<link rel="stylesheet/less" type="text/css" href="less/main.less" /> 
+<script src="js/less.min.js" type="text/javascript"></script> -->
+<link rel="stylesheet" href="less/header.css" />
+<link rel="stylesheet" href="less/main.css" />
+<link rel="stylesheet" href="less/common.css" />
+<link rel="stylesheet" rel="stylesheet/css" type="text/css" href="less/widget/idangerous.swiper.css" />	
+<script src="js/init.js"></script>
+<style>
+
+
+</style>
+</head>
+<body>
+	<!-- Top html start -->
+	<header class="header bor-bott">
+		<img class="fl logo" src="img/logo.png" />
+		<div class="fr w80">
+			<div class="search">&#xe603</div>
+			<div class="cart">&#xe61f</div>
+			<div class="nav">&#xe608</div>		
+		</div>
+	</header>
+	<!-- Top html end -->
+	
+	<!---login html--->
+  <div class="m-login">
+  	<div class="m-img"><img src="img/headportrait.jpg"></div>
+  	<div class="m-form-group group">
+  		<span></span>
+  		<input type="text" id="mm" placeholder="183 2221 5221">
+  		<i><img src="img/login_delete.png"></i>
+  	</div>
+  	<div class="m-form-group m-group">
+  		<span></span>
+  		<input type="password" placeholder="" id="password">
+  		<i><img src="img/login_3.png"></i>
+  	</div>
+  	<div class="m-btn">
+  		<a href="##" class="btn">登录</a>
+  	</div>
+  	<div class="login-password">
+  		<label class="fl"><input name="Fruit" type="checkbox" value="" />记住账号密码 </label>
+  		<a href="##" class="fr">忘记密码?</a>
+  	</div>
+  </div><!---login html end--->
+  
+  <!--Other login html-->
+  <div class="m-other">
+  	<h3>其他登录</h3>
+  	<div class="other-login">
+  		<a href="##">
+  			<span><img src="img/others_qq.png"></span>
+  			<p>QQ</p>
+  		</a>
+  		<a href="##">
+  			<span><img src="img/others_wx.png"></span>
+  			<p>微信</p>
+  		</a>
+  		<a href="##">
+  			<span><img src="img/others_zfb.png"></span>
+  			<p>支付宝</p>
+  		</a>
+  	</div>
+  </div><!--Other login html end-->
+  <div class="m-cancel">
+  	<a href="##" class="">取消</a>
+  </div>
+
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script> 
+<script>
+ $(function(){
+	var m = $("#mm").val();
+	$("#mm").keyup(function(){//绑定修改事件
+		if(m && m ==""){
+				$(".m-login .group i").hide();
+			}else{
+				$(".m-login .group i").show();
+				$(".m-login .group i").click(function(){
+					$("#mm").val("");
+					$(".m-login .group i").hide();
+				})
+			};
+   });
+
+			//切换密码框密码可见，不可见
+			$(".m-login .m-group i").click(function (){
+					if($("#password").attr("type") == 'text'){
+						$("#password").attr('type','password');
+					}else{
+					  $("#password").attr('type','text');
+					}
+				});
+ });
+
+	
+</script>
+
+
+
+
+</body>
+</html>

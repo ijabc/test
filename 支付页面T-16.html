@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TCL官方网站</title>
+
+<!--  <link rel="stylesheet/less" type="text/css" href="less/header.less" />
+<link rel="stylesheet/less" type="text/css" href="less/main.less" /> 
+<script src="js/less.min.js" type="text/javascript"></script>  -->
+<link rel="stylesheet" href="less/header.css" />
+<link rel="stylesheet" href="less/main.css" />
+<link rel="stylesheet" href="less/common.css" />
+<link rel="stylesheet" rel="stylesheet/css" type="text/css" href="less/widget/idangerous.swiper.css" /> 
+<script src="js/init.js"></script>
+</head>
+<body>
+	<!-- Top html start -->
+  <header class="header bor-bott">
+    <img class="fl logo" src="img/logo.png" />
+    <div class="fr w80">
+      <div class="search">&#xe608</div>
+      <div class="cart">&#xe61f</div>
+      <div class="nav"> &#xe603</div>   
+    </div>
+  </header>
+	<!-- Top html end -->
+  <!-- Bill title start -->
+<div class="billtitle bor-bott">
+  订单详情
+</div>
+  <!-- Bill title end -->
+<!-- Bill detail message start -->
+<div class="billdetail-info-message w90 bor-bott">
+  <div class="row">
+    <span class="m_label">收 货 人  ：</span>
+    <span class="m_content">
+     Lyn 15920454141
+    </span>
+  </div>
+  <div class="row">
+    <span class="m_label">收货地址： </span>
+    <span class="m_content ">
+    深圳市南山区中山园路1001号多媒体大        
+    </span>
+  </div>         
+</div>
+<!-- Bill detail message end -->
+<!-- Bill pay choose way start -->
+<div class="Bill_Pay_Way bor-bott">
+  <div class="Bill_Pay_Way_Title">
+    支付方式：
+  </div>
+  <div class="Bill_Pay_Way_Content active">
+    <div class="WayIcon fl">
+      <img src="img/nav/zhifubao_icon.jpg">
+    </div>
+    <div class="WayContent fl">
+      <p class="way">支付宝</p>
+      <p>已绑定支付宝账户，直接付款</p>
+    </div>
+  </div>
+  <div class="Bill_Pay_Way_Content ">
+    <div class="WayIcon fl">
+      <img src="img/nav/ATM_icon.jpg">
+    </div>
+    <div class="WayContent fl">
+      <p class="way">银行卡支付</p>
+      <p>支持储蓄卡信用卡付款，无需开通网银</p>
+    </div>
+  </div>
+  <div class="Bill_Pay_Way_Content">
+    <div class="WayIcon fl">
+      <img src="img/nav/weixin_icon.jpg">
+    </div>
+    <div class="WayContent fl">
+      <p class="way">支付宝</p>
+      <p>已绑定支付宝账户，直接付款</p>
+    </div>
+  </div>    
+</div>
+<!-- Bill pay choose way end -->
+<!-- Bill pay total start -->
+<div class="Bill_Pay_Total bor-bott">
+  订单总价：<span>39999元</span>
+</div>
+<!-- Bill pay total end -->
+
+<div class="button mgt40">
+  立即支付
+</div>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+       $(document).on('tap', '.Bill_Pay_Way_Content', function(){
+        $(".Bill_Pay_Way_Content").each(function(){
+          $(this).attr("class","Bill_Pay_Way_Content");
+        });
+        $(this).attr("class","Bill_Pay_Way_Content active");
+       });
+    })
+</script>
+</body>
+
+</html>

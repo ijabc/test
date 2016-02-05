@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TCL官方网站</title>
+
+
+ <link rel="stylesheet" href="less/header.css" />
+<link rel="stylesheet" href="less/main.css" />
+<link rel="stylesheet" href="less/common.css" /> 
+<link rel="stylesheet" rel="stylesheet/css" type="text/css" href="less/widget/idangerous.swiper.css" />	
+<script src="js/init.js"></script>
+<style>
+
+
+</style>
+</head>
+<body>
+	<!-- Top html start -->
+	<header class="header bor-bott">
+		<img class="fl logo" src="img/logo.png" />
+		<div class="fr w80">
+			<div class="search">&#xe603</div>
+			<div class="cart">&#xe61f</div>
+			<div class="nav">&#xe608</div>		
+		</div>
+	</header>
+	<!-- Top html end -->
+	
+	<!--New address html-->
+	<div class="reset-password new-address">
+		<h3>新建地址</h3>
+		<div class="form-group">
+			<span><b>姓</b>名：</span>
+			<input type="text" placeholder="收货人姓名">
+		</div>
+		<div class="form-group">
+			<span><b>手</b>机：</span>
+			<input type="text" placeholder="收货人手机号码">
+		</div>
+		<div class="form-group">
+			<span>所在地区：</span>
+			<input class="address-box" type="text" placeholder="请选择区域">
+		</div>
+		<div class="form-group">
+			<span>详细地址：</span>
+			<textarea  style="resize:none;" placeholder="请输入街道等详细地址"></textarea>
+		</div>
+		
+		<div class="new-address-btn">
+		 <a href="##" class="btn">保存地址</a>
+		</div>
+		
+	</div><!--New address html end-->
+	
+	
+	<div class="new_modal"></div>
+	<!---选择地址弹出框-->
+	<div class="select-address">
+		<div class="m-header">
+			<h2>选择地区</h2>
+			<s></s>
+		</div>
+		<div class="address-roll">
+			<ul>
+				<li>北京</li>
+				<li>天津</li>
+				<li>河北省</li>
+				<li>山东省</li>
+				<li>河南省</li>
+				<li>辽宁省</li>
+				<li>吉林省</li>
+				<li>山东省</li>
+				<li>河南省</li>
+				<li>辽宁省</li>
+				<li>吉林省</li>
+			</ul>
+	 </div>
+	</div><!---选择地址弹出框 end-->
+	
+  
+  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script> 
+  
+  <script>
+  
+  $(".address-box").click(function(){
+  	$(".new_modal").show();
+  	$(".select-address").show();
+  });
+  $(".select-address s").click(function(){
+  	$(".new_modal").hide();
+  	$(".select-address").hide();
+  })
+  </script>
+</body>
+</html>

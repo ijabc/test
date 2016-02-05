@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  <title>TCL官方网站</title>
+<!-- 
+<link rel="stylesheet/less" type="text/css" href="less/header.less" />
+<link rel="stylesheet/less" type="text/css" href="less/main.less" /> 
+<script src="js/less.min.js" type="text/javascript"></script> -->
+<link rel="stylesheet" href="less/header.css" />
+<link rel="stylesheet" href="less/main.css" />
+<link rel="stylesheet" href="less/common.css" />
+<link rel="stylesheet" rel="stylesheet/css" type="text/css" href="less/widget/idangerous.swiper.css" /> 
+
+<style>
+
+
+</style>
+</head>
+<body>
+  <!-- Top html start -->
+  <header class="header bor-bott">
+    <img class="fl logo" src="img/logo.png" />
+    <div class="fr w80">
+      <div class="search">&#xe603</div>
+      <div class="cart">&#xe61f</div>
+      <div class="nav">&#xe608</div>    
+    </div>
+  </header>
+  <!-- Top html end -->
+<!-- Search input start -->
+<div class="row bor-bott">
+<div class="searchdiv">
+  <div class="inputsearchicon">&#xe608</div>
+  <div class="inputsearch"><input type="text" placeholder="超薄电视"/></div>
+  <div class="closesearch">&#xe62b</div>
+  <div class="clear"></div> 
+</div>
+</div>
+<!-- Search input end -->
+<!-- Search tip start -->
+<div class="searchtip">
+  <ul>
+    <li>
+      <div class="Stip">
+        近期活动
+      </div>
+    </li>
+    <li>
+      <div class="Stip">
+        近期活动
+      </div>
+    </li>
+    <li>
+      <div class="Stip">
+        近期活动
+      </div>
+    </li>       
+  </ul>
+  <div class="clear"></div>
+</div>
+<!-- Search tip end -->
+<!-- Condition start -->
+<div class="selectCondition">
+  <div class="selectConditionOne">
+  <div class="selecttxt">筛选</div> 
+  <div class="arraw">&#xe62c</div>
+  </div>
+  <div class="selectConditionTwo">
+  <div class="selecttxt">排序</div> 
+  <div class="arraw">&#xe62c</div>
+  </div>  
+    <div class="clear"></div>
+</div>
+<div class="conditiontab bor-top hidden">
+  <div class="row">
+    <div class="btn fl">
+      重新选择
+    </div>
+    <div class="btn fl finish">
+      完成
+    </div>    
+    <div class="clear"></div>
+  </div>
+  <div class="row billbg">
+    <ul>
+      <li class="bor-bott w70">
+        <div class="fl">
+          44寸
+        </div>
+        <div class="fr">
+          <div class="arraw">
+           &#xe62c
+          </div>
+        </div>
+      </li>
+      <li class="bor-bott w70 active">
+        <div class="fl">
+          44寸
+        </div>
+        <div class="fr">
+          <div class="arraw hidden">
+            &#xe62c
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- Condition end -->
+<!-- Item List start -->
+<div class="swiper-container itemList bor-top">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide item">
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>
+    <div class="swiper-slide item">
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>
+    <div class="swiper-slide item">
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>
+    <div class="swiper-slide item">
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>            
+</div>
+<div class="clear"></div>
+</div>
+<!-- Item List end -->
+
+<script type="text/javascript" src="js/zepto.min.js"></script>  
+<script type="text/javascript" src="js/dropload.js"></script> 
+<script>
+  $(function(){
+  $(document).on('click', '.selectConditionOne', function(){
+    if( $(".conditiontab").hasClass("hidden")){
+        $(".conditiontab").show(500);
+        $(".conditiontab").attr("class","conditiontab bor-top");
+    }else{
+        $(".conditiontab").hide(500);
+        $(".conditiontab").attr("class","conditiontab bor-top hidden");
+    }
+
+  });
+
+  $(document).on('click', '.finish', function(){
+  $(this).parent().parent().hide(500); 
+  $(this).parent().parent().attr("class","conditiontab bor-top hidden");
+  });
+
+    var counter = 0;
+    // 每页展示4个
+    var num = 4;
+    var pageStart = 0,pageEnd = 0;
+
+    // dropload
+    $('body').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+              $.ajax({
+            type: 'GET',
+            url: 'json/more.json',
+            dataType: 'json',
+            success: function(data){
+                var result = '';
+                    counter++;
+                    pageEnd = num * counter;
+                    pageStart = pageEnd - num;
+                for(var i = pageStart; i < pageEnd; i++){
+                    result +='<div class="swiper-slide item">'
+    +'<div class="itemimg"><img src="img/nav/item_one.jpg"></div>'
+    +'<div class="itemtxt">518L冰箱  玻璃面板</div>'
+    +'<div class="itemprice">2999元</div>'
+      +'</div>';
+        if((i + 1) >= data.lists.length){
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                            break;
+                        }
+                }
+                    // 为了测试，延迟1秒加载
+                    setTimeout(function(){
+                        $('.swiper-wrapper').append(result);
+                        // 每次数据加载完，必须重置
+                        me.resetload();
+                    },1000);
+            },
+            error: function(xhr, type){
+                alert('Ajax error!');
+            }
+        });//调用加载更多放数据的地方
+
+        }
+    });
+
+
+
+
+
+
+  });
+  </script>
+</body>
+</html>

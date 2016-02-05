@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  <title>TCL官方网站</title>
+<!-- 
+<link rel="stylesheet/less" type="text/css" href="less/header.less" />
+<link rel="stylesheet/less" type="text/css" href="less/main.less" /> 
+<script src="js/less.min.js" type="text/javascript"></script> -->
+<link rel="stylesheet" href="less/header.css" />
+<link rel="stylesheet" href="less/main.css" />
+<link rel="stylesheet" href="less/common.css" />
+<link rel="stylesheet" rel="stylesheet/css" type="text/css" href="less/widget/amazeui.swiper.min.css" /> 
+
+<style>
+
+
+</style>
+</head>
+<body>
+  <!-- Top html start -->
+  <header class="header bor-bott">
+    <img class="fl logo" src="img/logo.png" />
+    <div class="fr w80">
+      <div class="search">&#xe603</div>
+      <div class="cart">&#xe61f</div>
+      <div class="nav">&#xe608</div>    
+    </div>
+  </header>
+  <!-- Top html end -->
+<!-- Item List start -->
+<div class="lunbo-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide item">
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    </div>
+    <div class="swiper-slide item">
+    <div class="itemimg"><img src="img/nav/7.jpg"></div>
+    </div>
+    <div class="swiper-slide item">
+    <div class="itemimg"><img src="img/nav/8.jpg"></div>
+    </div>              
+</div>
+ <div class="lunbo-pagination"></div>
+<div class="clear"></div>
+</div>
+<!-- Item List end -->
+
+<!-- Condition start -->
+<div class="selectCondition">
+  <div class="selectConditionOne">
+  <div class="selecttxt">筛选</div> 
+  <div class="arraw fl">&#xe62c</div>
+  </div>
+    <div class="button mgl25 fr">
+    取消对比
+  </div>
+  <div class="selectConditionTwo">
+  <div class="selecttxt">排序</div> 
+  <div class="arraw fl">&#xe62c</div>
+  </div>  
+
+    <div class="clear"></div>
+</div>
+<div class="conditiontab bor-top hidden">
+  <div class="row">
+    <div class="btn fl">
+      重新选择
+    </div>
+    <div class="btn fl finish">
+      完成
+    </div>    
+    <div class="clear"></div>
+  </div>
+  <div class="row billbg">
+    <ul>
+      <li class="bor-bott w70">
+        <div class="fl">
+          44寸
+        </div>
+        <div class="fr">
+          <div class="arraw">
+           &#xe62c
+          </div>
+        </div>
+      </li>
+      <li class="bor-bott w70 active">
+        <div class="fl">
+          44寸
+        </div>
+        <div class="fr">
+          <div class="arraw hidden">
+            &#xe62c
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- Condition end -->
+<!-- Item List start -->
+<div class="item-container itemList bor-top">
+  <div class="item-wrapper">
+    <div class="swiper-slide item">
+    <div class="compareSelectbox">
+      <input type="checkbox">
+    </div>
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>
+    <div class="swiper-slide item">
+        <div class="compareSelectbox">
+      <input type="checkbox">
+    </div>
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>
+    <div class="swiper-slide item">
+        <div class="compareSelectbox">
+      <input type="checkbox">
+    </div>
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>
+    <div class="swiper-slide item">
+        <div class="compareSelectbox">
+      <input type="checkbox">
+    </div>
+    <div class="itemimg"><img src="img/nav/item_one.jpg"></div>
+    <div class="itemtxt">518L冰箱  玻璃面板</div>
+    <div class="itemprice">2999元</div>
+    </div>            
+</div>
+<div class="clear"></div>
+</div>
+<!-- Item List end -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>  
+<script type="text/javascript" src="js/dropload.js"></script> 
+<script src="js/widget/amazeui.swiper.js"></script> 
+<script>
+  $(function(){
+  $(document).on('click', '.selectConditionOne,.selectConditionTwo', function(){
+    if( $(".conditiontab").hasClass("hidden")){
+        $(".conditiontab").show(500);
+        $(".conditiontab").attr("class","conditiontab bor-top");
+        $(this).find(".arraw").attr("class","arraw fl rotate90");
+    }else{
+        $(".conditiontab").hide(500);
+        $(".conditiontab").attr("class","conditiontab bor-top hidden");
+           $(this).find(".arraw").attr("class","arraw fl");
+    }
+
+  });
+
+  $(document).on('click', '.finish', function(){
+  $(this).parent().parent().hide(500); 
+  $(this).parent().parent().attr("class","conditiontab bor-top hidden");
+  $(".arraw").attr("class","arraw fl");
+  });
+
+    var counter = 0;
+    // 每页展示4个
+    var num = 4;
+    var pageStart = 0,pageEnd = 0;
+
+    // dropload
+    $('body').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+              $.ajax({
+            type: 'GET',
+            url: 'json/more.json',
+            dataType: 'json',
+            success: function(data){
+                var result = '';
+                    counter++;
+                    pageEnd = num * counter;
+                    pageStart = pageEnd - num;
+                for(var i = pageStart; i < pageEnd; i++){
+                    result +='<div class="swiper-slide item">'
+    +'<div class="itemimg"><img src="img/nav/item_one.jpg"></div>'
+    +'<div class="itemtxt">518L冰箱  玻璃面板</div>'
+    +'<div class="itemprice">2999元</div>'
+      +'</div>';
+        if((i + 1) >= data.lists.length){
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                            break;
+                        }
+                }
+                    // 为了测试，延迟1秒加载
+                    setTimeout(function(){
+                        $('.item-container .item-wrapper').append(result);
+                        // 每次数据加载完，必须重置
+                        me.resetload();
+                    },1000);
+            },
+            error: function(xhr, type){
+                alert('Ajax error!');
+            }
+        });//调用加载更多放数据的地方
+
+        }
+    });
+
+//轮播
+var mySwiper = new Swiper('.lunbo-container', {
+  autoplay: 5000,//可选选项，自动滑动
+  pagination : '.lunbo-pagination',
+  paginationClickable :true,
+})
+
+//设定窗口比率
+  var container=$(".lunbo-container");
+  var radio = container.width()/container.height();
+//容器宽度
+  var containerWidth = window.innerWidth +'px';
+  $(".lunbo-container .itemimg").each(function(){
+    var img=$(this).find("img");
+    console.log(img.width());
+    if(img.width()/img.height() <radio){
+      $(this).addClass("height100");
+    }else{
+      $(this).addClass("width100");
+    }
+  }); 
+
+
+  });
+  </script>
+</body>
+</html>
